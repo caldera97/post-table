@@ -1,20 +1,22 @@
 <template>
-  <tr>
-    <th>ID</th>
-    <th>User ID</th>
-    <th>Title</th>
-    <th>Body</th>
-  </tr>
-  <div :key="post.id" v-for="post in posts">
-    <TableRow :post="post" />
+  <div id="container">
+    <tr>
+      <th>ID</th>
+      <th>User ID</th>
+      <th id="title">Title</th>
+      <th>Body</th>
+    </tr>
+    <div :key="post.id" v-for="post in posts">
+      <TableRow :post="post" />
+    </div>
   </div>
 </template>
 
 <script>
-import TableRow from "./components/TableRow.vue"
+import TableRow from "./components/TableRow.vue";
 export default {
   name: "App",
-  components: {TableRow},
+  components: { TableRow },
   data() {
     return {
       posts: [],
@@ -42,5 +44,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+th,
+td {
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 40px;
 }
 </style>
