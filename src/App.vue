@@ -1,11 +1,20 @@
 <template>
-  <div>Hello world</div>
+  <tr>
+    <th>ID</th>
+    <th>User ID</th>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+  <div :key="post.id" v-for="post in posts">
+    <TableRow :post="post" />
+  </div>
 </template>
 
 <script>
+import TableRow from "./components/TableRow.vue"
 export default {
   name: "App",
-  components: {},
+  components: {TableRow},
   data() {
     return {
       posts: [],
@@ -13,7 +22,7 @@ export default {
   },
   methods: {
     async fetchPosts() {
-      const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
       const data = await res.json();
       console.log(data);
       return data;
