@@ -1,5 +1,5 @@
 <template>
-  <div id="container">
+  <table id="container">
     <tr>
       <th>ID</th>
       <th>User ID</th>
@@ -9,7 +9,7 @@
     <div :key="post.id" v-for="post in posts">
       <TableRow :post="post" />
     </div>
-  </div>
+  </table>
 </template>
 
 <script>
